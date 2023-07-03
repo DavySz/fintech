@@ -12,7 +12,7 @@ export const InputWrapper = styled.div<IInputWrapper>`
 
     background-color: ${({ theme }) => theme.colors.input.background.default};
 
-    border: 1px solid ${({ variant }) => getInputVariantColor(variant)};
+    border: 2px solid ${({ variant }) => getInputVariantColor(variant)};
 `;
 
 export const CustomInput = styled.input`
@@ -27,6 +27,6 @@ export const CustomInput = styled.input`
     }
 
     &::placeholder {
-        color: ${({ theme }) => theme.colors.neutrals.weak};
+        color: ${({ theme }) => theme.colors.neutrals.weakness};
     }
 `;

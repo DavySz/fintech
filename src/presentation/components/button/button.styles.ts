@@ -9,6 +9,9 @@ const secondaryStyles = css`
 
 export const CustomButton = styled.button<ICustomButton>`
     border: none;
+
+    width: 100%;
+
     align-items: center;
     justify-content: center;
 
