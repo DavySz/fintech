@@ -21,7 +21,7 @@ export const Input: React.FC<IProps> = ({
             return (
                 <Envelope
                     size={24}
-                    weight="thin"
+                    weight="regular"
                     color={getInputVariantColor(variant)}
                 />
             );
@@ -31,14 +31,14 @@ export const Input: React.FC<IProps> = ({
             return isOpen ? (
                 <Eye
                     size={24}
-                    weight="thin"
+                    weight="regular"
                     onClick={handleToggle}
                     color={getInputVariantColor(variant)}
                 />
             ) : (
                 <EyeClosed
                     size={24}
-                    weight="thin"
+                    weight="regular"
                     onClick={handleToggle}
                     color={getInputVariantColor(variant)}
                 />
