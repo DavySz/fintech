@@ -48,6 +48,7 @@
         "no-useless-constructor": "off",
         "no-empty-function": "off",
         "lines-between-class-members": "off",
+        "@typescript-eslint/strict-boolean-expressions": "off",
         "import/extensions": [
             "error",
             "ignorePackages",
