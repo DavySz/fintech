@@ -7,4 +7,5 @@ export const CustomText = styled.span<ICustomText>`
     color: ${({ color }) => getColor(color)};
     font-weight: ${({ weight }) => weight};
     font-size: ${({ size }) => size}px;
+    text-align: ${({ align }) => align};
 `;
