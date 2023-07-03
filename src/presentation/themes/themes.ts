@@ -1,4 +1,4 @@
-export const theme = {
+export const defaultTheme = {
     colors: {
         neutrals: {
             inverted: "#F5F5F5",
@@ -17,6 +17,14 @@ export const theme = {
         },
         red: {
             default: "#E83F5B",
+        },
+        input: {
+            background: {
+                default: "#d9d9d9",
+            },
+        },
+        white: {
+            default: "#FFFFFF",
         },
     },
     fonts: {
