@@ -1,10 +1,12 @@
 import { css, styled } from "styled-components";
 
+import { transformToRem } from "../../helpers/transform-pix-rem";
 import { type ICustomButton } from "./button.types";
 import { getBackgroundVariantColor } from "./mappers";
 
 const secondaryStyles = css`
-    border: 1px solid ${({ theme }) => theme.colors.neutrals.default};
+    border: ${transformToRem(1)}rem solid
+        ${({ theme }) => theme.colors.neutrals.default};
 `;
 
 export const CustomButton = styled.button<ICustomButton>`
@@ -15,9 +17,9 @@ export const CustomButton = styled.button<ICustomButton>`
     align-items: center;
     justify-content: center;
 
-    padding: 16px 24px;
+    padding: ${transformToRem(16)}rem ${transformToRem(24)}rem;
 
-    border-radius: 12px;
+    border-radius: ${transformToRem(12)}rem;
 
     background-color: ${({ variant }) => getBackgroundVariantColor(variant)};
 

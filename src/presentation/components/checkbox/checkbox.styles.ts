@@ -1,5 +1,6 @@
 import { css, styled } from "styled-components";
 
+import { transformToRem } from "../../helpers/transform-pix-rem";
 import { type ICustomCheckbox } from "./checkbox.types";
 
 const isCheckedStyle = css`
@@ -7,19 +8,20 @@ const isCheckedStyle = css`
 `;
 
 const isNotCheckedStyle = css`
-    border: 2px solid ${({ theme }) => theme.colors.purple.default};
+    border: ${transformToRem(2)}rem solid
+        ${({ theme }) => theme.colors.purple.default};
     background-color: ${({ theme }) => theme.colors.white.default};
 `;
 
 export const CustomCheckbox = styled.div<ICustomCheckbox>`
     display: flex;
 
-    width: 52px;
-    height: 52px;
+    width: ${transformToRem(52)}rem;
+    height: ${transformToRem(52)}rem;
     align-items: center;
     justify-content: center;
 
-    border-radius: 8px;
+    border-radius: ${transformToRem(8)}rem;
 
     ${({ isChecked }) => isChecked && isCheckedStyle}
     ${({ isChecked }) => !isChecked && isNotCheckedStyle}
