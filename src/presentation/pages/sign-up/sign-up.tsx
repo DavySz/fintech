@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/button/button";
 import { Divider } from "../../components/divider/divider";
 import { Input } from "../../components/input/input";
@@ -15,6 +16,12 @@ import {
 } from "./sign-up.styles";
 
 export const SignUp: React.FC = () => {
+    const navigate = useNavigate();
+
+    const handleNavigateToSignIn = () => {
+        navigate("/");
+    };
+
     return (
         <Container>
             <Aside>
@@ -44,7 +51,9 @@ export const SignUp: React.FC = () => {
                         </Text>
                         <Divider />
                     </Disclaimer>
-                    <Button variant="tertiary">Voltar</Button>
+                    <Button variant="tertiary" onClick={handleNavigateToSignIn}>
+                        Voltar
+                    </Button>
                 </Form>
             </Main>
         </Container>
