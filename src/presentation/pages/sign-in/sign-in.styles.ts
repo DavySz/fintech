@@ -1,35 +1,50 @@
 import { styled } from "styled-components";
 
-import { type ISection } from "./sign-in.types";
+import { Text } from "../../components/text/text";
+import { transformToRem } from "../../helpers/transform-pix-rem";
 
 export const Container = styled.div`
     display: flex;
-
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
 
     height: 100vh;
-    width: 100vw;
+
+    background-color: ${({ theme }) => theme.colors.neutrals.inverted};
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+    }
 `;
 
-export const Section = styled.div<ISection>`
+export const Aside = styled.aside`
+    display: flex;
+    flex: 1;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: ${transformToRem(120)}rem ${transformToRem(80)}rem;
+
+    background-color: ${({ theme }) => theme.colors.neutrals.inverted};
+
+    @media (max-width: 1020px) {
+        display: none;
+    }
+`;
+
+export const Main = styled.main`
     display: flex;
     align-items: center;
     justify-content: center;
 
+    flex: 2;
+
+    padding: 0 ${transformToRem(32)}rem;
+
+    background-color: ${({ theme }) => theme.colors.purple.default};
+
     flex-direction: column;
-
-    width: 50vw;
-    height: 100vh;
-
-    padding: 24px;
-
-    background-color: ${({ theme, variant }) =>
-        variant === "primary"
-            ? theme.colors.neutrals.inverted
-            : theme.colors.purple.default};
-
-    gap: 48px;
 `;
 
 export const Form = styled.div`
@@ -47,10 +62,10 @@ export const InputWrapper = styled.div`
 
     flex-direction: column;
 
-    gap: 24px;
+    gap: ${transformToRem(24)}rem;
 
-    margin-bottom: 48px;
-    margin-top: 24px;
+    margin-bottom: ${transformToRem(48)}rem;
+    margin-top: ${transformToRem(24)}rem;
 `;
 
 export const Disclaimer = styled.div`
@@ -60,8 +75,20 @@ export const Disclaimer = styled.div`
 
     width: 100%;
 
-    gap: 82px;
+    gap: ${transformToRem(82)}rem;
 
-    margin-top: 48px;
-    margin-bottom: 24px;
+    margin-top: ${transformToRem(48)}rem;
+    margin-bottom: ${transformToRem(24)}rem;
+`;
+
+export const MobileInfo = styled.div`
+    @media (min-width: 1024px) {
+        display: none;
+    }
+`;
+
+export const SignInText = styled(Text)`
+    @media (min-width: 320px) and (max-width: 1023px) {
+        display: none;
+    }
 `;

@@ -1,24 +1,32 @@
 import { styled } from "styled-components";
 
+import { transformToRem } from "../../helpers/transform-pix-rem";
 import type { IInputWrapper } from "./input.types";
 import { getInputVariantColor } from "./mappers";
 
 export const InputWrapper = styled.div<IInputWrapper>`
     display: flex;
     align-items: center;
-    padding: 16px 24px;
+    padding: ${transformToRem(16)}rem ${transformToRem(24)}rem;
 
-    border-radius: 8px;
+    border-radius: ${transformToRem(8)}rem;
 
     background-color: ${({ theme }) => theme.colors.input.background.default};
 
-    border: 2px solid ${({ variant }) => getInputVariantColor(variant)};
+    border: ${transformToRem(2)}rem solid
+        ${({ variant }) => getInputVariantColor(variant)};
+
+    width: 100%;
+
+    @media (max-width: 368px) {
+        width: ${transformToRem(300)}rem;
+    }
 `;
 
 export const CustomInput = styled.input`
     border: none;
 
-    margin-right: 24px;
+    margin-right: ${transformToRem(24)}rem;
 
     background-color: ${({ theme }) => theme.colors.input.background.default};
 

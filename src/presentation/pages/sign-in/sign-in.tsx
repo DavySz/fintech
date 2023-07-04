@@ -1,50 +1,33 @@
 import { Button } from "../../components/button/button";
 import { Divider } from "../../components/divider/divider";
 import { Input } from "../../components/input/input";
-import { Logo } from "../../components/logo/logo";
 import { Text } from "../../components/text/text";
+import { Info } from "./info/info";
 import {
     Container,
-    Section,
     Form,
     InputWrapper,
     Disclaimer,
+    MobileInfo,
+    Aside,
+    Main,
+    SignInText,
 } from "./sign-in.styles";
 
 export const SignIn: React.FC = () => {
     return (
         <Container>
-            <Section variant="primary">
-                <Logo />
-                <Text size="48" weight="600" align="center">
-                    Controle suas
-                    <br />
-                    <Text
-                        size="48"
-                        weight="600"
-                        align="center"
-                        color="purple-default"
-                    >
-                        finanças
-                    </Text>{" "}
-                    de forma
-                    <br />
-                    muito{" "}
-                    <Text
-                        size="48"
-                        weight="600"
-                        align="center"
-                        color="purple-default"
-                    >
-                        simples!
-                    </Text>
-                </Text>
-            </Section>
-            <Section variant="secondary">
+            <Aside>
+                <Info />
+            </Aside>
+            <Main>
+                <MobileInfo>
+                    <Info />
+                </MobileInfo>
                 <Form>
-                    <Text size="24" weight="500" color="white-default">
+                    <SignInText size="24" weight="500" color="white-default">
                         Login
-                    </Text>
+                    </SignInText>
                     <InputWrapper>
                         <Input type="email" placeholder="email" />
                         <Input type="password" placeholder="senha" />
@@ -59,7 +42,7 @@ export const SignIn: React.FC = () => {
                     </Disclaimer>
                     <Button variant="tertiary">Cadastre-se</Button>
                 </Form>
-            </Section>
+            </Main>
         </Container>
     );
 };

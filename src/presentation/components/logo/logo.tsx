@@ -1,8 +1,6 @@
-import { HandCoins } from "@phosphor-icons/react";
 import { useTheme } from "styled-components";
 
-import { Text } from "../text/text";
-import { CustomLogo } from "./logo.styles";
+import { CustomLogo, CustomText, StyledHandCoins } from "./logo.styles";
 import { type ILogo } from "./logo.types";
 
 export const Logo: React.FC<ILogo> = ({ onlyAsset }) => {
@@ -12,19 +10,15 @@ export const Logo: React.FC<ILogo> = ({ onlyAsset }) => {
         if (onlyAsset) return null;
 
         return (
-            <Text size="48" weight="400">
+            <CustomText size="48" weight="400">
                 fintech
-            </Text>
+            </CustomText>
         );
     }
 
     return (
         <CustomLogo>
-            <HandCoins
-                color={colors.orange.default}
-                weight="duotone"
-                size={120}
-            />
+            <StyledHandCoins color={colors.orange.default} weight="duotone" />
             {renderText()}
         </CustomLogo>
     );
