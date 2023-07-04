@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 import { Text } from "../../../components/text/text";
-import { transformToRem } from "../../../helpers/transform-pix-rem";
+import { formatPxToRem } from "../../../helpers/format-css-value/format-px-to-rem";
 
 export const Container = styled.div`
     display: flex;
@@ -10,7 +10,7 @@ export const Container = styled.div`
 
     flex-direction: column;
 
-    gap: ${transformToRem(32)}rem;
+    gap: ${formatPxToRem(32)}rem;
 `;
 
 export const CustomText = styled(Text)`
@@ -23,6 +23,6 @@ export const CustomText = styled(Text)`
     }
 
     @media (min-width: 1023px) {
-        font-size: ${transformToRem(28)}rem;
+        font-size: ${formatPxToRem(28)}rem;
     }
 `;

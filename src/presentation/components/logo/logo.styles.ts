@@ -1,7 +1,7 @@
 import { HandCoins } from "@phosphor-icons/react";
 import { styled } from "styled-components";
 
-import { transformToRem } from "../../helpers/transform-pix-rem";
+import { formatPxToRem } from "../../helpers/format-css-value/format-px-to-rem";
 import { Text } from "../text/text";
 
 export const CustomLogo = styled.div`
@@ -17,17 +17,17 @@ export const StyledHandCoins = styled(HandCoins)`
     font-weight: ${(props) => props.weight};
 
     @media (min-width: 320px) and (max-width: 1020px) {
-        font-size: ${transformToRem(48)}rem;
+        font-size: ${formatPxToRem(48)}rem;
     }
 
     @media (min-width: 1021px) {
-        font-size: ${transformToRem(75)}rem;
+        font-size: ${formatPxToRem(75)}rem;
     }
 `;
 
 export const CustomText = styled(Text)`
     @media (min-width: 320px) and (max-width: 1020px) {
         color: ${({ theme }) => theme.colors.white.default};
-        font-size: ${transformToRem(28)}rem;
+        font-size: ${formatPxToRem(28)}rem;
     }
 `;

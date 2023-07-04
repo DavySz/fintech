@@ -13,6 +13,7 @@ export type TSizes =
     | "20"
     | "22"
     | "24"
+    | "32"
     | "48";
 
 export type TWeights = "400" | "500" | "600" | "700";

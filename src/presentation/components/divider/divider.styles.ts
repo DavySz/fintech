@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
 
-import { transformToRem } from "../../helpers/transform-pix-rem";
+import { formatPxToRem } from "../../helpers/format-css-value/format-px-to-rem";
 
 export const Line = styled.div`
     width: 100%;
-    height: ${transformToRem(1)}rem;
+    height: ${formatPxToRem(1)}rem;
 
     background-color: ${({ theme }) => theme.colors.white.default};
 `;

@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 import { Text } from "../../components/text/text";
-import { transformToRem } from "../../helpers/transform-pix-rem";
+import { formatPxToRem } from "../../helpers/format-css-value/format-px-to-rem";
 
 export const Container = styled.div`
     display: flex;
@@ -24,7 +24,7 @@ export const Aside = styled.aside`
     justify-content: center;
     align-items: center;
 
-    padding: ${transformToRem(120)}rem ${transformToRem(80)}rem;
+    padding: ${formatPxToRem(120)}rem ${formatPxToRem(80)}rem;
 
     background-color: ${({ theme }) => theme.colors.neutrals.inverted};
 
@@ -40,7 +40,7 @@ export const Main = styled.main`
 
     flex: 2;
 
-    padding: 0 ${transformToRem(32)}rem;
+    padding: 0 ${formatPxToRem(32)}rem;
 
     background-color: ${({ theme }) => theme.colors.purple.default};
 
@@ -62,10 +62,10 @@ export const InputWrapper = styled.div`
 
     flex-direction: column;
 
-    gap: ${transformToRem(24)}rem;
+    gap: ${formatPxToRem(24)}rem;
 
-    margin-bottom: ${transformToRem(48)}rem;
-    margin-top: ${transformToRem(24)}rem;
+    margin-bottom: ${formatPxToRem(48)}rem;
+    margin-top: ${formatPxToRem(24)}rem;
 `;
 
 export const Disclaimer = styled.div`
@@ -75,10 +75,10 @@ export const Disclaimer = styled.div`
 
     width: 100%;
 
-    gap: ${transformToRem(82)}rem;
+    gap: ${formatPxToRem(82)}rem;
 
-    margin-top: ${transformToRem(48)}rem;
-    margin-bottom: ${transformToRem(24)}rem;
+    margin-top: ${formatPxToRem(48)}rem;
+    margin-bottom: ${formatPxToRem(24)}rem;
 `;
 
 export const MobileInfo = styled.div`

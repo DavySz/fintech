@@ -1,32 +1,32 @@
 import { styled } from "styled-components";
 
-import { transformToRem } from "../../helpers/transform-pix-rem";
+import { formatPxToRem } from "../../helpers/format-css-value/format-px-to-rem";
 import type { IInputWrapper } from "./input.types";
 import { getInputVariantColor } from "./mappers";
 
 export const InputWrapper = styled.div<IInputWrapper>`
     display: flex;
     align-items: center;
-    padding: ${transformToRem(16)}rem ${transformToRem(24)}rem;
+    padding: ${formatPxToRem(16)}rem ${formatPxToRem(24)}rem;
 
-    border-radius: ${transformToRem(8)}rem;
+    border-radius: ${formatPxToRem(8)}rem;
 
     background-color: ${({ theme }) => theme.colors.input.background.default};
 
-    border: ${transformToRem(2)}rem solid
+    border: ${formatPxToRem(2)}rem solid
         ${({ variant }) => getInputVariantColor(variant)};
 
     width: 100%;
 
     @media (max-width: 368px) {
-        width: ${transformToRem(300)}rem;
+        width: ${formatPxToRem(300)}rem;
     }
 `;
 
 export const CustomInput = styled.input`
     border: none;
 
-    margin-right: ${transformToRem(24)}rem;
+    margin-right: ${formatPxToRem(24)}rem;
 
     background-color: ${({ theme }) => theme.colors.input.background.default};
 
