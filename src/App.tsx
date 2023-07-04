@@ -1,13 +1,13 @@
 import { type ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
 
-import { SignIn } from "./presentation/pages/sign-in/sign-in";
 import { defaultTheme } from "./presentation/themes/themes";
+import { SignUp } from "./presentation/pages/sign-up/sign-up";
 
 function App(): ReactNode {
     return (
         <ThemeProvider theme={defaultTheme}>
-            <SignIn />
+            <SignUp />
         </ThemeProvider>
     );
 }
