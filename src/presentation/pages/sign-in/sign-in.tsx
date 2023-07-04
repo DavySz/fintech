@@ -22,6 +22,10 @@ export const SignIn: React.FC = () => {
         navigate("/sign-up");
     };
 
+    const handleNavigateToDashboard = () => {
+        navigate("/dashboard");
+    };
+
     return (
         <Container>
             <Aside>
@@ -39,7 +43,7 @@ export const SignIn: React.FC = () => {
                         <Input type="email" placeholder="email" />
                         <Input type="password" placeholder="senha" />
                     </InputWrapper>
-                    <Button>Entrar</Button>
+                    <Button onClick={handleNavigateToDashboard}>Entrar</Button>
                     <Disclaimer>
                         <Divider />
                         <Text size="24" weight="500" color="white-default">
