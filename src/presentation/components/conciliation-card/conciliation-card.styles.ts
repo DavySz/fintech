@@ -13,6 +13,12 @@ export const Card = styled.div<ICard>`
     background-color: ${({ variant }) => cardBackgroundMapper(variant)};
 
     padding: ${formatPxToRem(16)}rem ${formatPxToRem(24)}rem;
+
+    width: 100%;
+
+    @media (max-width: 1030px) {
+        border-radius: 0px;
+    }
 `;
 
 export const Header = styled.div`
