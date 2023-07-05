@@ -50,7 +50,11 @@ export const Input: React.FC<IProps> = ({
 
     return (
         <InputWrapper variant={variant}>
-            <CustomInput type={isOpen ? "text" : type} {...rest} />
+            <CustomInput
+                type={isOpen ? "text" : type}
+                autoComplete="new-password"
+                {...rest}
+            />
             {renderIcon()}
         </InputWrapper>
     );
