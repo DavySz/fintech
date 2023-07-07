@@ -16,8 +16,8 @@ const isNotCheckedStyle = css`
 export const CustomCheckbox = styled.div<ICustomCheckbox>`
     display: flex;
 
-    width: ${formatPxToRem(52)}rem;
-    height: ${formatPxToRem(52)}rem;
+    width: ${formatPxToRem(24)}rem;
+    height: ${formatPxToRem(24)}rem;
     align-items: center;
     justify-content: center;
 

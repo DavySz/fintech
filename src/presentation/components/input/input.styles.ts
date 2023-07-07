@@ -30,11 +30,19 @@ export const CustomInput = styled.input`
 
     background-color: ${({ theme }) => theme.colors.input.background.default};
 
+    width: 100%;
+
     &:focus {
         outline: none;
     }
 
     &::placeholder {
         color: ${({ theme }) => theme.colors.neutrals.weakness};
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
     }
 `;
