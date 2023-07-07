@@ -84,7 +84,7 @@ export const ListHeader = styled.div`
     margin-bottom: ${formatPxToRem(16)}rem;
 `;
 
-export const IconWrapper = styled.div`
+export const IconWrapper = styled.button`
     height: ${formatPxToRem(32)}rem;
     width: ${formatPxToRem(32)}rem;
 
@@ -97,6 +97,7 @@ export const IconWrapper = styled.div`
 
     background-color: ${({ theme }) => theme.colors.input.background.default};
 
+    border: none;
     cursor: pointer;
 `;
 
