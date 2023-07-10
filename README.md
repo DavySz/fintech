@@ -21,7 +21,7 @@ This project is a financial control application where is possible to register tr
 Clone the project and access the folder.
 
 ```bash
-$ git clone [https://github.com/davysz/go-finances-mobile.git](https://github.com/DavySz/fintech.git)
+$ git clone https://github.com/DavySz/fintech.git
 $ cd fintech
 ```
 
