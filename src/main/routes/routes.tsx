@@ -1,5 +1,4 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import { SignIn } from "../pages/sign-in/sign-in";
 import { applicationRoutes } from "./register-router";
 
 export const ApplicationRoutes = () => {

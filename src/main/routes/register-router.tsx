@@ -1,6 +1,6 @@
-import { Dashboard } from "../pages/dashboard/dashboard";
-import { SignIn } from "../pages/sign-in/sign-in";
-import { SignUp } from "../pages/sign-up/sign-up";
+import { Dashboard } from "../../presentation/pages/dashboard/dashboard";
+import { SignIn } from "../../presentation/pages/sign-in/sign-in";
+import { SignUp } from "../../presentation/pages/sign-up/sign-up";
 
 export const applicationRoutes = [
     {

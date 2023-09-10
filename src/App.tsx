@@ -2,7 +2,7 @@ import { type ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
 
 import { defaultTheme } from "./presentation/themes/themes";
-import { ApplicationRoutes } from "./presentation/routes/routes";
+import { ApplicationRoutes } from "./main/routes/routes";
 
 function App(): ReactNode {
     return (
