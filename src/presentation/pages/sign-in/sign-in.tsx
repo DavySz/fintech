@@ -14,9 +14,22 @@ import {
     Main,
     SignInText,
 } from "./sign-in.styles";
+import { ICallback, IEvent, ISignIn } from "./sign-in.types";
+import { useState } from "react";
+import { SignInSpace } from "../../../domain/usecases";
+import { useRecoilState } from "recoil";
+import { userState } from "../../recoil/atoms/user.atom";
 
-export const SignIn: React.FC = () => {
+export const SignIn: React.FC<ISignIn> = ({ remoteSignIn }: ISignIn) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [_, setUser] = useRecoilState(userState);
+
     const navigate = useNavigate();
+
+    const updateInputValue = (callback: ICallback, e: IEvent) => {
+        callback(e.target.value);
+    };
 
     const handleNavigateToSignUp = () => {
         navigate("/sign-up");
@@ -24,6 +37,22 @@ export const SignIn: React.FC = () => {
 
     const handleNavigateToDashboard = () => {
         navigate("/dashboard");
+    };
+
+    const handleSingIn = async () => {
+        const signInParams: SignInSpace.Params = {
+            password,
+            email,
+        };
+
+        try {
+            const user = await remoteSignIn.signIn(signInParams);
+            setUser(user);
+
+            handleNavigateToDashboard();
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
@@ -40,10 +69,20 @@ export const SignIn: React.FC = () => {
                         Login
                     </SignInText>
                     <InputWrapper>
-                        <Input type="email" placeholder="email" />
-                        <Input type="password" placeholder="senha" />
+                        <Input
+                            onChange={(e) => updateInputValue(setEmail, e)}
+                            placeholder="email"
+                            type="email"
+                            value={email}
+                        />
+                        <Input
+                            onChange={(e) => updateInputValue(setPassword, e)}
+                            placeholder="senha"
+                            value={password}
+                            type="password"
+                        />
                     </InputWrapper>
-                    <Button onClick={handleNavigateToDashboard}>Entrar</Button>
+                    <Button onClick={handleSingIn}>Entrar</Button>
                     <Disclaimer>
                         <Divider />
                         <Text size="24" weight="500" color="white-default">
