@@ -1,15 +1,14 @@
 import { Dashboard } from "../../presentation/pages/dashboard/dashboard";
-import { SignIn } from "../../presentation/pages/sign-in/sign-in";
-import { SignUp } from "../../presentation/pages/sign-up/sign-up";
+import { makeSignInPage, makeSignUpPage } from "../factories/pages";
 
 export const applicationRoutes = [
     {
-        element: <SignIn />,
+        element: makeSignInPage(),
         path: "/",
         key: "/sign-in",
     },
     {
-        element: <SignUp />,
+        element: makeSignUpPage(),
         path: "/sign-up",
         key: "/sign-up",
     },
