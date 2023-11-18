@@ -8,7 +8,7 @@ export const TextArea = styled.textarea`
 
     margin-right: ${formatPxToRem(24)}rem;
 
-    background-color: ${({ theme }) => theme.colors.input.background.default};
+    background-color: ${({ theme }) => theme.colors.neutrals.inverted};
 
     resize: none;
 
@@ -32,7 +32,7 @@ export const InputWrapper = styled.div<IInputWrapper>`
 
     border-radius: ${formatPxToRem(8)}rem;
 
-    background-color: ${({ theme }) => theme.colors.input.background.default};
+    background-color: ${({ theme }) => theme.colors.neutrals.inverted};
 
     border: ${formatPxToRem(2)}rem solid
         ${({ variant }) => getInputVariantColor(variant)};

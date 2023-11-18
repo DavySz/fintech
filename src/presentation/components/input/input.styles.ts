@@ -11,7 +11,7 @@ export const InputWrapper = styled.div<IInputWrapper>`
 
     border-radius: ${formatPxToRem(8)}rem;
 
-    background-color: ${({ theme }) => theme.colors.input.background.default};
+    background-color: ${({ theme }) => theme.colors.neutrals.inverted};
 
     border: ${formatPxToRem(2)}rem solid
         ${({ variant }) => getInputVariantColor(variant)};
@@ -28,7 +28,7 @@ export const CustomInput = styled.input`
 
     margin-right: ${formatPxToRem(24)}rem;
 
-    background-color: ${({ theme }) => theme.colors.input.background.default};
+    background-color: ${({ theme }) => theme.colors.neutrals.inverted};
 
     width: 100%;
 
