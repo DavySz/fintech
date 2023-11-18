@@ -1,5 +1,8 @@
-import { Dashboard } from "../../presentation/pages/dashboard/dashboard";
-import { makeSignInPage, makeSignUpPage } from "../factories/pages";
+import {
+    makeSignInPage,
+    makeSignUpPage,
+    makeDashboardPage,
+} from "../factories/pages";
 
 export const applicationRoutes = [
     {
@@ -13,7 +16,7 @@ export const applicationRoutes = [
         key: "/sign-up",
     },
     {
-        element: <Dashboard />,
+        element: makeDashboardPage(),
         path: "/dashboard",
         key: "/dashboard",
     },

@@ -1,4 +1,4 @@
-import { SignUpCase, SignUpSpace } from "../../domain/usecases/remote-sign-up";
+import { SignUpCase, SignUpSpace } from "../../domain/usecases";
 import { IHttpClient } from "../protocols/http";
 import { Encrypt } from "../crypto";
 

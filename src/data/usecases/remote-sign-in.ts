@@ -1,11 +1,10 @@
-import { UserModel } from "../../domain/models";
-import { SignInCase, SignInSpace } from "../../domain/usecases/remote-sign-in";
-import { Encrypt } from "../crypto";
+import { SignInCase, SignInSpace } from "../../domain/usecases";
 import { IHttpClient } from "../protocols/http";
+import { Encrypt } from "../crypto";
 
 export class RemoteSign implements SignInCase {
     constructor(
-        private readonly httpClient: IHttpClient<UserModel>,
+        private readonly httpClient: IHttpClient<SignInSpace.Model>,
         private readonly encrypt: Encrypt,
         private readonly url: string
     ) {}
