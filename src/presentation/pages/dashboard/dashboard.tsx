@@ -14,30 +14,96 @@ import {
 } from "./dashboard.styles";
 import { useTheme } from "styled-components";
 import { TransactionCard } from "../../components/transaction-card/transaction-card";
-import { mockTransactions } from "./mock-dashboard-data";
 import { CreateTransaction } from "../create-transaction/create-transaction";
-import { useState } from "react";
-import { SelectTransaction } from "../../components/select-transaction/select-transaction";
+import { useEffect, useState } from "react";
+import { IDashboard } from "./dashboard.types";
+import { PageState } from "../../common/types";
+import { ConciliationModel, TransactionModel } from "../../../domain/models";
+import { CreateTransactionSpace } from "../../../domain/usecases";
 
-export const Dashboard: React.FC = () => {
+export const Dashboard: React.FC<IDashboard> = ({
+    remoteGetConciliation,
+    remoteGetTransactions,
+    remoteCreateTransaction,
+}) => {
     const theme = useTheme();
+    const [conciliationState, setConciliationState] =
+        useState<PageState>("loading");
+    const [listState, setListState] = useState<PageState>("loading");
+    const [conciliation, setConciliation] = useState<ConciliationModel[]>([]);
+    const [transactions, setTransactions] = useState<TransactionModel[]>([]);
     const [registerTransaction, setRegisterTransaction] = useState(false);
 
-    function renderTransactions() {
-        return mockTransactions.map(
-            ({ date, icon, transactionType, value, title }) => {
-                return (
-                    <TransactionCard
-                        transactionType={transactionType}
-                        title={title}
-                        value={value}
-                        date={date}
-                        icon={icon}
-                    />
-                );
-            }
-        );
-    }
+    const renderTransactions = () => {
+        return transactions.map((transaction) => {
+            return (
+                <TransactionCard
+                    transactionType={transaction.type}
+                    value={Number(transaction.value)}
+                    icon={transaction.category_id}
+                    key={transaction.category_id}
+                    date={transaction.created_at}
+                    title={transaction.title}
+                />
+            );
+        });
+    };
+
+    const renderScope = () => {
+        if (registerTransaction) {
+            return (
+                <CreateTransaction
+                    handleCreateTransaction={handleCreateTransaction}
+                />
+            );
+        }
+
+        return <Transactions>{renderTransactions()}</Transactions>;
+    };
+
+    const getConciliationValue = (type: "income" | "outcome" | "save") => {
+        const card = conciliation.find((item) => item.type === type);
+        if (card) return Number(card.value);
+        return 0;
+    };
+
+    const handleCreateTransaction = (params: CreateTransactionSpace.Params) => {
+        remoteCreateTransaction.create(params);
+    };
+
+    const loadTransactions = async () => {
+        setListState("loading");
+
+        try {
+            const response = await remoteGetTransactions.get();
+            setTransactions(response);
+
+            setListState("ready");
+        } catch {
+            setListState("error");
+        }
+    };
+
+    const loadConciliation = async () => {
+        setConciliationState("loading");
+
+        try {
+            const response = await remoteGetConciliation.get();
+            setConciliation(response);
+
+            setConciliationState("ready");
+        } catch {
+            setConciliationState("error");
+        }
+    };
+
+    const loadData = async () => {
+        await Promise.all([loadTransactions, loadConciliation]);
+    };
+
+    useEffect(() => {
+        loadData();
+    }, []);
 
     return (
         <Container>
@@ -51,19 +117,19 @@ export const Dashboard: React.FC = () => {
             <Main>
                 <Cards>
                     <ConciliationCard
-                        value={2500}
-                        title="Entrada"
+                        value={getConciliationValue("income")}
                         variant="income"
+                        title="Entrada"
                     />
                     <ConciliationCard
-                        value={2500}
-                        title="Saída"
+                        value={getConciliationValue("outcome")}
                         variant="outcome"
+                        title="Saída"
                     />
                     <ConciliationCard
-                        value={2500}
-                        title="Saldo"
+                        value={getConciliationValue("save")}
                         variant="save"
+                        title="Saldo"
                     />
                 </Cards>
                 <ListHeader>
@@ -88,11 +154,7 @@ export const Dashboard: React.FC = () => {
                         )}
                     </IconWrapper>
                 </ListHeader>
-                {registerTransaction ? (
-                    <CreateTransaction />
-                ) : (
-                    <Transactions>{renderTransactions()}</Transactions>
-                )}
+                {renderScope()}
             </Main>
         </Container>
     );
