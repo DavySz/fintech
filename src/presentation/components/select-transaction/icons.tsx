@@ -17,9 +17,11 @@ import {
     WifiHigh,
 } from "@phosphor-icons/react";
 import { defaultTheme } from "../../themes/themes";
+import { IIcons } from "./select-transaction.types";
 
-export const icons = [
+export const icons: IIcons[] = [
     {
+        category: "hamburger",
         label: "Lanche",
         icon: (
             <Hamburger
@@ -30,6 +32,7 @@ export const icons = [
         ),
     },
     {
+        category: "coffee",
         label: "Café",
         icon: (
             <Hamburger
@@ -40,6 +43,7 @@ export const icons = [
         ),
     },
     {
+        category: "beer",
         label: "Bebida",
         icon: (
             <BeerBottle
@@ -50,6 +54,7 @@ export const icons = [
         ),
     },
     {
+        category: "spotify",
         label: "Spotfy",
         icon: (
             <SpotifyLogo
@@ -60,6 +65,7 @@ export const icons = [
         ),
     },
     {
+        category: "barbell",
         label: "Academia",
         icon: (
             <Barbell
@@ -70,6 +76,7 @@ export const icons = [
         ),
     },
     {
+        category: "currency",
         label: "Salário",
         icon: (
             <CurrencyDollarSimple
@@ -80,6 +87,7 @@ export const icons = [
         ),
     },
     {
+        category: "car",
         label: "Veiculo",
         icon: (
             <Car
@@ -90,6 +98,7 @@ export const icons = [
         ),
     },
     {
+        category: "book",
         label: "Livro",
         icon: (
             <BookBookmark
@@ -100,6 +109,7 @@ export const icons = [
         ),
     },
     {
+        category: "airplane",
         label: "Viagem",
         icon: (
             <AirplaneTilt
@@ -110,6 +120,7 @@ export const icons = [
         ),
     },
     {
+        category: "internet",
         label: "Internet",
         icon: (
             <WifiHigh
@@ -120,6 +131,7 @@ export const icons = [
         ),
     },
     {
+        category: "streaming",
         label: "Streaming",
         icon: (
             <Popcorn
@@ -130,6 +142,7 @@ export const icons = [
         ),
     },
     {
+        category: "shirt",
         label: "Roupas",
         icon: (
             <TShirt
@@ -140,6 +153,7 @@ export const icons = [
         ),
     },
     {
+        category: "water",
         label: "Água",
         icon: (
             <Drop
@@ -150,6 +164,7 @@ export const icons = [
         ),
     },
     {
+        category: "light",
         label: "Luz",
         icon: (
             <LightbulbFilament
@@ -160,6 +175,7 @@ export const icons = [
         ),
     },
     {
+        category: "pet",
         label: "Pet",
         icon: (
             <PawPrint
@@ -170,6 +186,7 @@ export const icons = [
         ),
     },
     {
+        category: "trend",
         label: "Investimentos",
         icon: (
             <TrendUp
@@ -180,6 +197,7 @@ export const icons = [
         ),
     },
     {
+        category: "other",
         label: "Outro",
         icon: (
             <HandCoins
