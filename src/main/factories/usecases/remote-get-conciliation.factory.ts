@@ -10,7 +10,7 @@ import { userState } from "../../../presentation/recoil/atoms/user.atom";
 export const makeRemoteGetConciliation = (): GetConciliationCase => {
     const [user, _] = useRecoilState(userState);
 
-    const url = `${process.env.BFF_URL}/conciliation/${user.user_id}`;
+    const url = `${process.env.BFF_URL}/conciliations/${user.user_id}`;
 
     const axiosHttpClientAdapter =
         makeAxiosHttpClientAdapter<GetConciliationSpace.Model[]>();
