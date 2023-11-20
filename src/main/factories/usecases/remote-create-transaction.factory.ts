@@ -3,7 +3,7 @@ import { CreateTransactionCase } from "../../../domain/usecases";
 import { makeAxiosHttpClientAdapter } from "../http";
 
 export const makeRemoteCreateTransaction = (): CreateTransactionCase => {
-    const url = String(process.env.BFF_URL);
+    const url = `${process.env.BFF_URL}/transactions`;
 
     const axiosHttpClientAdapter = makeAxiosHttpClientAdapter<void>();
 

@@ -20,7 +20,7 @@ export class RemoteSign implements SignInCase {
 
         const response = await this.httpClient.request({
             url: this.url,
-            method: "get",
+            method: "post",
             body,
         });
 

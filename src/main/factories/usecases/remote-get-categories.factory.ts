@@ -6,7 +6,7 @@ import {
 import { makeAxiosHttpClientAdapter } from "../http";
 
 export const makeRemoteGetCategories = (): GetCategoriesCase => {
-    const url = String(process.env.BFF_URL);
+    const url = `${process.env.BFF_URL}/transactions`;
 
     const axiosHttpClientAdapter =
         makeAxiosHttpClientAdapter<GetCategoriesSpace.Model[]>();

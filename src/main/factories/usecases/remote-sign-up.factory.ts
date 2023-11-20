@@ -4,7 +4,7 @@ import { makeCryptoEncryptAdapter } from "../adapters/encrypt";
 import { makeAxiosHttpClientAdapter } from "../http";
 
 export const makeRemoteSignUp = (): SignUpCase => {
-    const url = String(process.env.BFF_URL);
+    const url = `${process.env.BFF_URL}/users`;
 
     const axiosHttpClientAdapter = makeAxiosHttpClientAdapter<void>();
     const encryptAdapter = makeCryptoEncryptAdapter();
